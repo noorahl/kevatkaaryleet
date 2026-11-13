@@ -1,0 +1,19 @@
+section {
+  display: none;
+}
+
+section:target {
+  display: block;
+}
+
+.sidebar-profile #image-container {
+  clip-path: circle(50%);
+  aspect-ratio: 1 / 1;
+  width: 50%;
+}
+
+.sidebar-profile #image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}

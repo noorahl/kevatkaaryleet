@@ -60,6 +60,25 @@ CREATE TABLE User (
 	username VARCHAR(255) NOT NULL
 );
 
+/*USER_FAVOURITE_FOOD TABLE*/
+
+DROP TABLE IF EXISTS User_favourite_Food;
+
+CREATE TABLE User_favourite_Food (
+	user_id INT NOT NULL,
+    food_id INT NOT NULL,
+
+	PRIMARY KEY (user_id, food_id),
+
+	CONSTRAINT fk_User
+	FOREIGN KEY(user_id)
+	REFERENCES User(user_id),
+
+	CONSTRAINT fk_Food
+	FOREIGN KEY(food_id)
+	REFERENCES Food(food_id)
+);
+
 
 /* ORDERS STATUS TABLE */
 

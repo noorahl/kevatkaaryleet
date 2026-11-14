@@ -45,6 +45,21 @@ CREATE TABLE Restaurant_Food (
 	REFERENCES Food(food_id)
 );
 
+/* USER TABLE */
+
+DROP TABLE IF EXISTS User;
+
+CREATE TABLE User (
+	user_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	phone_number VARCHAR(50),
+	mail VARCHAR(50) NOT NULL,
+	name VARCHAR(50) NOT NULL,
+	lastname VARCHAR(50) NOT NULL,
+	address VARCHAR(100),
+	password_hash VARCHAR(255) NOT NULL,
+	username VARCHAR(255) NOT NULL
+);
+
 
 /* ORDERS STATUS TABLE */
 

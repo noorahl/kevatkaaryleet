@@ -26,6 +26,25 @@ CREATE TABLE Admin (
 	REFERENCES Restaurant(restaurant_id)
 );
 
+/* RESTAURANT_FOOD TABLE */
+
+DROP TABLE IF EXISTS Restaurant_Food;
+
+CREATE TABLE Restaurant_Food (
+	restaurant_id INT NOT NULL,
+    food_id INT NOT NULL,
+
+	PRIMARY KEY (restaurant_id, food_id),
+
+	CONSTRAINT fk_Restaurant
+	FOREIGN KEY(restaurant_id)
+	REFERENCES Restaurant(restaurant_id),
+
+	CONSTRAINT fk_Food
+	FOREIGN KEY(food_id)
+	REFERENCES Food(food_id)
+);
+
 
 /* ORDERS STATUS TABLE */
 

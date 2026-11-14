@@ -6,9 +6,9 @@ CREATE TABLE Restaurant (
 	restaurant_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	info_text_fi VARCHAR(500) NOT NULL,
 	info_text_eng VARCHAR(500) NOT NULL,
-	phone_number VARCHAR(50),
-	name VARCHAR(50),
-	address VARCHAR(100)
+	phone_number VARCHAR(50) NOT NULL,
+	name VARCHAR(50) NOT NULL,
+	address VARCHAR(100) NOT NULL
 );
 
 /* ADMIN TABLE */
@@ -51,11 +51,11 @@ DROP TABLE IF EXISTS User;
 
 CREATE TABLE User (
 	user_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	phone_number VARCHAR(50),
+	phone_number VARCHAR(50) NOT NULL,
 	mail VARCHAR(50) NOT NULL,
 	name VARCHAR(50) NOT NULL,
 	lastname VARCHAR(50) NOT NULL,
-	address VARCHAR(100),
+	address VARCHAR(100) NOT NULL,
 	password_hash VARCHAR(255) NOT NULL,
 	username VARCHAR(255) NOT NULL
 );

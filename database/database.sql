@@ -1,3 +1,17 @@
+/* RESTAURANT TABLE */
+
+DROP TABLE IF EXISTS Restaurant;
+
+CREATE TABLE Restaurant (
+	restaurant_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	info_text_fi VARCHAR(500) NOT NULL,
+	info_text_eng VARCHAR(500) NOT NULL,
+	phone_number VARCHAR(50),
+	name VARCHAR(50),
+	address VARCHAR(100)
+);
+
+
 /* ORDERS STATUS TABLE */
 
 DROP TABLE IF EXISTS Order_Status;

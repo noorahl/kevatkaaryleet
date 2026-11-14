@@ -11,6 +11,21 @@ CREATE TABLE Restaurant (
 	address VARCHAR(100)
 );
 
+/* ADMIN TABLE */
+
+DROP TABLE IF EXISTS Admin;
+
+CREATE TABLE Admin (
+	admin_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	password_hash VARCHAR(255) NOT NULL,
+	username VARCHAR(255) NOT NULL,
+	restaurant_id INT NOT NULL,
+
+	CONSTRAINT fk_Restaurant
+	FOREIGN KEY(restaurant_id)
+	REFERENCES Restaurant(restaurant_id)
+);
+
 
 /* ORDERS STATUS TABLE */
 

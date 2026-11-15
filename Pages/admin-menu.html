@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <h2>Ruokalistan muokkaus</h2>
+      <form id="AddMenu">
+        <input
+          type="text"
+          id="foodNameFi"
+          name="foodNameFi"
+          placeholder="Ruoan nimi suomeksi"
+          required
+        />
+        <input
+          type="text"
+          id="foodNameEng"
+          name="foodNameEng"
+          placeholder="Ruoan nimi englanniksi"
+          required
+        />
+        <input
+          type="number"
+          id="foodPrice"
+          name="foodPrice"
+          placeholder="Hinta"
+          required
+        />
+        <textarea
+          type="text"
+          id="foodDescriptionFi"
+          name="foodDescriptionFi"
+          placeholder="Ruuan kuvaus suomeksi"
+          required
+        ></textarea>
+        <textarea
+          type="text"
+          id="foodDescriptionEng"
+          name="foodDescriptionEng"
+          placeholder="Ruuan kuvaus englanniksi"
+          required
+        ></textarea>
+        <label> <input type="checkbox" id="Vegan" /> Vegaani </label>
+        <label> <input type="checkbox" id="lactos-free" /> Laktoositon </label>
+        <label> <input type="checkbox" id="gluten-free" /> Gluteeniton </label>
+        <input type="file" accept="image/*" />
+      </form>
+      <div id="changeMenu">
+        <ul>
+          <li><a href="#">Alkuruuat</a></li>
+          <li><a href="#">Pääruuat</a></li>
+          <li><a href="#">Jälkiruuat</a></li>
+          <li><a href="#">Juomat</a></li>
+          <div id="foodInfo">
+            <label id="FoodName">Ruoka1</label>
+            <p id="foodDescription">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Aspernatur aperiam commodi eum exercitationem neque impedit ipsum
+              perferendis minus quisquam rerum voluptatum velit, distinctio
+              error, ducimus magni consectetur rem sit asperiores!
+            </p>
+            <img
+              id="deleteInfo"
+              src="../images/trashCan.png"
+              alt="Delete food"
+              width="30"
+              height="30"
+            />
+            <img
+              id="deleteInfo"
+              src="../images/pen.png"
+              alt="Update food"
+              width="35"
+              height="35"
+            />
+          </div>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>

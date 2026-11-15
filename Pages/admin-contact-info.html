@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <h2>Yhteystiedot</h2>
+      <form>
+        <input
+          type="text"
+          id="contactHeader"
+          name="contactHeader"
+          placeholder="Ravintolan nimi"
+          required
+        />
+        <input
+          type="text"
+          id="contactAddress"
+          name="contactAddress"
+          placeholder="Osoite"
+          required
+        />
+        <input
+          type="tel"
+          id="contactPhone"
+          name="contactPhone"
+          placeholder="Puhelinnumero"
+          required
+        />
+        <textarea
+          id="contactInfoFi"
+          name="contactInfoFi"
+          placeholder="Kirjoita esittelyteksti suomeksi"
+          required
+        ></textarea>
+        <textarea
+          type="text"
+          id="contactInfoEng"
+          name="contactInfoEng"
+          placeholder="Kirjoita info teksti englanniksi"
+          required
+        ></textarea>
+        <button id="publishContactInfo" type="submit">Julkaise</button>
+      </form>
+    </main>
+  </body>
+</html>

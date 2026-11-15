@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <h2>Tiedotteet</h2>
+      <section>
+        <h3>Uusi tiedote</h3>
+        <form>
+          <input
+            type="text"
+            id="header"
+            name="header"
+            placeholder="Otsikko"
+            required
+          />
+          <input
+            type="text"
+            id="info"
+            name="info"
+            placeholder="Kirjoita tiedoite"
+            required
+          />
+          <button id="publishButton" type="submit">Julkaise</button>
+        </form>
+      </section>
+      <section>
+        <h3>Aiemmat tiedotteet</h3>
+        <div>
+          <h4 class="infoHeader">Tiedote1</h4>
+          <p class="infoText">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni odio
+            nemo quasi tempore voluptatibus error assumenda quibusdam voluptates
+            dolorem placeat? Nihil nam ea possimus adipisci voluptas repellat
+            porro soluta iure.
+          </p>
+          <img
+            id="deleteInfo"
+            src="../images/trashCan.png"
+            alt="Delete"
+            width="30"
+            height="30"
+          />
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

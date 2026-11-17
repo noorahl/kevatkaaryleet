@@ -21,7 +21,9 @@ CREATE TABLE Restaurant (
 	info_text_eng VARCHAR(500) NOT NULL,
 	phone_number VARCHAR(50) NOT NULL,
 	name VARCHAR(50) NOT NULL,
-	address VARCHAR(100) NOT NULL
+	address VARCHAR(100) NOT NULL,
+	email VARCHAR(50) NOT NULL,
+	opening_hours VARCHAR(100) NOT NULL
 );
 
 /* USER TABLE */

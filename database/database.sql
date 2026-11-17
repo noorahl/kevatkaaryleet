@@ -99,7 +99,7 @@ CREATE TABLE Admin (
 	username VARCHAR(255) NOT NULL,
 	restaurant_id INT NOT NULL,
 
-	CONSTRAINT fk_Restaurant
+	CONSTRAINT fk_Restaurant_Admin
 	FOREIGN KEY(restaurant_id)
 	REFERENCES Restaurant(restaurant_id)
 );
@@ -112,11 +112,11 @@ CREATE TABLE Restaurant_Food (
 
 	PRIMARY KEY (restaurant_id, food_id),
 
-	CONSTRAINT fk_Restaurant
+	CONSTRAINT fk_Restaurant_Restaurant_Food
 	FOREIGN KEY(restaurant_id)
 	REFERENCES Restaurant(restaurant_id),
 
-	CONSTRAINT fk_Food
+	CONSTRAINT fk_Food_Restaurant_Food
 	FOREIGN KEY(food_id)
 	REFERENCES Food(food_id)
 );
@@ -129,11 +129,11 @@ CREATE TABLE User_favourite_Food (
 
 	PRIMARY KEY (user_id, food_id),
 
-	CONSTRAINT fk_User
+	CONSTRAINT fk_User_Favourite_Food
 	FOREIGN KEY(user_id)
 	REFERENCES User(user_id),
 
-	CONSTRAINT fk_Food
+	CONSTRAINT fk_Food_Favourite_Food
 	FOREIGN KEY(food_id)
 	REFERENCES Food(food_id)
 );

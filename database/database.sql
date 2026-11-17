@@ -1,5 +1,6 @@
 /* DROP TABLES IN REVERSE ORDER OF DEPENDENCY */
 DROP TABLE IF EXISTS Food_Restrictions;
+DROP TABLE IF EXISTS Announcement;
 DROP TABLE IF EXISTS Restrictions;
 DROP TABLE IF EXISTS Order_Item;
 DROP TABLE IF EXISTS Order_History;
@@ -61,6 +62,20 @@ CREATE TABLE Restrictions (
     name_fi VARCHAR(50),
     name_eng VARCHAR(50)
 );
+
+/* ANNOUNCEMENT TABLE*/
+
+CREATE TABLE Announcement (
+	announcement_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	title VARCHAR(100) NOT NULL,
+	content VARCHAR(500) NOT NULL,
+	announcement_date Date NOT NULL DEFAULT CURRENT_DATE,
+	restaurant_id INT NOT NULL,
+
+	CONSTRAINT fk_restaurant_announcement
+	FOREIGN KEY (restaurant_id)
+	REFERENCES Restaurant(restaurant_id)
+)
 
 /* FOOD TABLE */
 CREATE TABLE Food (

@@ -75,7 +75,7 @@ CREATE TABLE Announcement (
 	CONSTRAINT fk_restaurant_announcement
 	FOREIGN KEY (restaurant_id)
 	REFERENCES Restaurant(restaurant_id)
-)
+);
 
 /* FOOD TABLE */
 CREATE TABLE Food (
@@ -87,6 +87,7 @@ CREATE TABLE Food (
 	is_available BOOLEAN,
 	price DOUBLE NOT NULL,
 	category_id INT NOT NULL,
+	CONSTRAINT fk_Food_Category
 	FOREIGN KEY (category_id)
 	REFERENCES Food_Category(category_id)
 );
@@ -234,6 +235,7 @@ INSERT INTO Food (name_fi, name_eng, description_fi, description_eng, is_availab
 /* Alkuruuat (Category ID 1) */
 ('Kasvis Kevätkääryleet 4KPL', 'Vegetable Spring Rolls 4PCS', 'Rapeaksi paistettuja kevätkääryleitä, joiden täytteenä on tuoreita vihanneksia.', 'Crispy fried spring rolls filled with mix of fresh vegetables.', TRUE, 6.50, 1),
 ('Kana Kevätkääryleet 4KPL', 'Chicken Spring Rolls 4PCS', 'Rapeita kevätkääryleitä, jotka on täytetty kanalla ja kasviksilla.', 'Crispy spring rolls filled with chicken and vegetables.', TRUE, 6.50, 1),
+('Kana-maissikeitto', 'Chicken-Sweet Corn Soup', 'Keitto, jossa on kanaa, maissia ja maustettua lientä.', 'Soup with chicken, sweet corn and seasoned broth.', TRUE, 8.50, 1),
 
 /* Pääruuat (Category ID 2) */
 ('Kantonin kanaa hapanimeläkastikkeessa', 'Cantonese Chicken in Sweet and Sour Sauce', 'Rapeaksi paistettua kanaa tarjoiltuna herkullisessa makean ja happaman kastikkeen kera.', 'Crispy fried chicken served with a delicious sweet and sour sauce.', TRUE, 18.50, 2),
@@ -284,8 +286,8 @@ INSERT INTO Food_Restrictions (food_id, restriction_id) VALUES
 (18, 2); /* Mangovanukas Gluteeniton */
 
 INSERT INTO Restaurant (info_text_fi, info_text_eng, phone_number, name, address, email, opening_hours) VALUES
-('Tervetuloa nauttimaan aidon kiinalaisen keittiön herkullisista mauista Espoon sydämessä! Ravintolamme tarjoaa monipuolisen valikoiman perinteisiä kiinalaisia ruokia, joissa yhdistyvät tuoreet raaka-aineet, huolella valmistetut annokset ja ainutlaatuiset maut.', 'Discover the delicious flavors of authentic Chinese cuisine in the heart of Espoo! Our restaurant offers a wide selection of traditional Chinese dishes, prepared with fresh ingredients, care, and passion.', '040 9913146', 'Kevätkääryle', 'Leppävaarankatu 3, 02600 Espoo', 'kevätkääryleEspoo@gmail.com', 'ma-su klo10-20'),
-('Tervetuloa nauttimaan aidon kiinalaisen keittiön herkullisista mauista Helsingin sydämessä! Ravintolamme tarjoaa monipuolisen valikoiman perinteisiä kiinalaisia ruokia, joissa yhdistyvät tuoreet raaka-aineet, huolella valmistetut annokset ja ainutlaatuiset maut.', 'Discover the delicious flavors of authentic Chinese cuisine in the heart of Helsinki! Our restaurant offers a wide selection of traditional Chinese dishes, prepared with fresh ingredients, care, and passion.', '040 8724534', 'Kevätkääryle', 'Urho Kekkosen katu 1, 00100 Helsinki', 'kevätkääryleHelsinki@gmail.com', 'ma-su klo10-20'),
-('Tervetuloa nauttimaan aidon kiinalaisen keittiön herkullisista mauista Tampereen sydämessä! Ravintolamme tarjoaa monipuolisen valikoiman perinteisiä kiinalaisia ruokia, joissa yhdistyvät tuoreet raaka-aineet, huolella valmistetut annokset ja ainutlaatuiset maut.', 'Discover the delicious flavors of authentic Chinese cuisine in the heart of Tampere! Our restaurant offers a wide selection of traditional Chinese dishes, prepared with fresh ingredients, care, and passion.', '040 4467644', 'Kevätkääryle', 'Vuolteenkatu 1, 33100 Tampere', 'kevätkääryleTampere@gmail.com', 'ma-su klo10-20'),
-('Tervetuloa nauttimaan aidon kiinalaisen keittiön herkullisista mauista Oulun sydämessä! Ravintolamme tarjoaa monipuolisen valikoiman perinteisiä kiinalaisia ruokia, joissa yhdistyvät tuoreet raaka-aineet, huolella valmistetut annokset ja ainutlaatuiset maut.', 'Discover the delicious flavors of authentic Chinese cuisine in the heart of Oulu! Our restaurant offers a wide selection of traditional Chinese dishes, prepared with fresh ingredients, care, and passion.', '040 5793274', 'Kevätkääryle', 'Isokatu 25, 90100 Oulu', 'kevätkääryleOulu@gmail.com', 'ma-su klo10-20'),
-('Tervetuloa nauttimaan aidon kiinalaisen keittiön herkullisista mauista Turun sydämessä! Ravintolamme tarjoaa monipuolisen valikoiman perinteisiä kiinalaisia ruokia, joissa yhdistyvät tuoreet raaka-aineet, huolella valmistetut annokset ja ainutlaatuiset maut.', 'Discover the delicious flavors of authentic Chinese cuisine in the heart of Turku! Our restaurant offers a wide selection of traditional Chinese dishes, prepared with fresh ingredients, care, and passion.', '040 8838754', 'Kevätkääryle', 'Yliopistonkatu 20, 20100 Turku', 'kevätkääryleTurku@gmail.com', 'ma-su klo10-20');
+('Tervetuloa nauttimaan aidon kiinalaisen keittiön herkullisista mauista Espoon sydämessä! Ravintolamme tarjoaa monipuolisen valikoiman perinteisiä kiinalaisia ruokia, joissa yhdistyvät tuoreet raaka-aineet, huolella valmistetut annokset ja ainutlaatuiset maut.', 'Discover the delicious flavors of authentic Chinese cuisine in the heart of Espoo! Our restaurant offers a wide selection of traditional Chinese dishes, prepared with fresh ingredients, care, and passion.', '040 9913146', 'Kevätkääryle', 'Leppävaarankatu 3, 02600 Espoo', 'kevätkääryleEspoo@gmail.com', 'ma-su klo 10-20'),
+('Tervetuloa nauttimaan aidon kiinalaisen keittiön herkullisista mauista Helsingin sydämessä! Ravintolamme tarjoaa monipuolisen valikoiman perinteisiä kiinalaisia ruokia, joissa yhdistyvät tuoreet raaka-aineet, huolella valmistetut annokset ja ainutlaatuiset maut.', 'Discover the delicious flavors of authentic Chinese cuisine in the heart of Helsinki! Our restaurant offers a wide selection of traditional Chinese dishes, prepared with fresh ingredients, care, and passion.', '040 8724534', 'Kevätkääryle', 'Urho Kekkosen katu 1, 00100 Helsinki', 'kevätkääryleHelsinki@gmail.com', 'ma-su klo 10-20'),
+('Tervetuloa nauttimaan aidon kiinalaisen keittiön herkullisista mauista Tampereen sydämessä! Ravintolamme tarjoaa monipuolisen valikoiman perinteisiä kiinalaisia ruokia, joissa yhdistyvät tuoreet raaka-aineet, huolella valmistetut annokset ja ainutlaatuiset maut.', 'Discover the delicious flavors of authentic Chinese cuisine in the heart of Tampere! Our restaurant offers a wide selection of traditional Chinese dishes, prepared with fresh ingredients, care, and passion.', '040 4467644', 'Kevätkääryle', 'Vuolteenkatu 1, 33100 Tampere', 'kevätkääryleTampere@gmail.com', 'ma-su klo 10-20'),
+('Tervetuloa nauttimaan aidon kiinalaisen keittiön herkullisista mauista Oulun sydämessä! Ravintolamme tarjoaa monipuolisen valikoiman perinteisiä kiinalaisia ruokia, joissa yhdistyvät tuoreet raaka-aineet, huolella valmistetut annokset ja ainutlaatuiset maut.', 'Discover the delicious flavors of authentic Chinese cuisine in the heart of Oulu! Our restaurant offers a wide selection of traditional Chinese dishes, prepared with fresh ingredients, care, and passion.', '040 5793274', 'Kevätkääryle', 'Isokatu 25, 90100 Oulu', 'kevätkääryleOulu@gmail.com', 'ma-su klo 10-20'),
+('Tervetuloa nauttimaan aidon kiinalaisen keittiön herkullisista mauista Turun sydämessä! Ravintolamme tarjoaa monipuolisen valikoiman perinteisiä kiinalaisia ruokia, joissa yhdistyvät tuoreet raaka-aineet, huolella valmistetut annokset ja ainutlaatuiset maut.', 'Discover the delicious flavors of authentic Chinese cuisine in the heart of Turku! Our restaurant offers a wide selection of traditional Chinese dishes, prepared with fresh ingredients, care, and passion.', '040 8838754', 'Kevätkääryle', 'Yliopistonkatu 20, 20100 Turku', 'kevätkääryleTurku@gmail.com', 'ma-su klo 10-20');

@@ -1,45 +1,15 @@
+import express from "express";
+import restaurantRouter from "./routes/cat-router.js";
+import userRouter from "./routes/user-router.js";
+import authRouter from "./routes/auth-router.js";
 
-const express = require('express');
-const path = require('path');
+const router = express.Router();
 
-const app = express();
-const PORT = process.env.PORT || 3000;
+// bind base url for all cat routes to catRouter
+router.use("/cats", restaurantRouter);
+// TODO: use userRouter for all /users endpoints
+router.use("/users", userRouter);
 
-// Parse incoming form data
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+router.use("/auth", authRouter);
 
-// Serve static files
-app.use('/style', express.static(path.join(__dirname, '../style')));
-app.use('/images', express.static(path.join(__dirname, '../images')));
-
-// Home page
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../Pages/index.html'));
-});
-
-// Other pages
-app.get('/login', (req, res) => {
-    res.sendFile(path.join(__dirname, '../Pages/login.html'));
-});
-
-app.get('/register', (req, res) => {
-    res.sendFile(path.join(__dirname, '../Pages/register.html'));
-});
-
-app.get('/cart', (req, res) => {
-    res.sendFile(path.join(__dirname, '../Pages/cart.html'));
-});
-
-app.get('/adminLogin', (req, res) => {
-    res.sendFile(path.join(__dirname, '../Pages/adminLogin.html'));
-});
-
-app.get('/userView', (req, res) => {
-    res.sendFile(path.join(__dirname, '../Pages/userView.html'));
-});
-
-// Start server
-app.listen(PORT, '0.0.0.0', () => {
-    console.log(`Server running on port ${PORT}`);
-});
+export default router;

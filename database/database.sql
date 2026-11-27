@@ -9,6 +9,8 @@ DROP TABLE IF EXISTS Order_Status;
 DROP TABLE IF EXISTS User_favourite_Food;
 DROP TABLE IF EXISTS Restaurant_Food;
 DROP TABLE IF EXISTS Admin;
+DROP TABLE IF EXISTS Food_Discounts;
+DROP TABLE IF EXISTS Discounts;
 DROP TABLE IF EXISTS Food;
 DROP TABLE IF EXISTS Food_Category;
 DROP TABLE IF EXISTS User;
@@ -210,6 +212,42 @@ CREATE TABLE Food_Restrictions (
     CONSTRAINT fk_Food_Restrictions_Restrictions
     FOREIGN KEY (restriction_id)
     REFERENCES Restrictions(restriction_id)
+);
+
+/* Discounts table */
+
+CREATE TABLE Discounts (
+	discount_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	restaurant_id INT NOT NULL,
+	title VARCHAR(100) NOT NULL,
+	start_date DATETIME NOT NULL,
+	end_date DATETIME NOT NULL,
+	is_active BOOLEAN DEFAULT TRUE,
+
+	CONSTRAINT fk_Discounts_Restaurant
+	FOREIGN KEY (restaurant_id)
+	REFERENCES Restaurant(restaurant_id)
+	ON DELETE CASCADE
+);
+
+/* FOOD DISCOUNTS JUNCTION TABLE */
+
+CREATE TABLE Food_Discounts (
+	food_id INT NOT NULL,
+	discount_id INT NOT NULL,
+	discounted_price DOUBLE NOT NULL,
+
+	PRIMARY KEY (food_id, discount_id),
+
+	CONSTRAINT fk_FoodDiscounts_Food
+	FOREIGN KEY (food_id)
+	REFERENCES Food(food_id)
+	ON DELETE CASCADE,
+
+	CONSTRAINT fk_FoodDiscounts_Discount
+	FOREIGN KEY (discount_id)
+	REFERENCES Discounts(discount_id)
+	ON DELETE CASCADE
 );
 
 /* INSERT DATA */

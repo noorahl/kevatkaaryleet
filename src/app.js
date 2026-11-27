@@ -1,5 +1,5 @@
 import express from "express";
-import router from "./api/index.js";
+import router from "/index.js";
 const hostname = "127.0.0.1";
 const port = 3000;
 const app = express();

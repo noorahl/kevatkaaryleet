@@ -1,5 +1,6 @@
 import express from "express";
-import router from "/index.js";
+import router from "./index.js";
+import cors from "cors";
 const hostname = "127.0.0.1";
 const port = 3000;
 const app = express();
